@@ -1,0 +1,103 @@
+<div class="career-registration">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Name...">
+
+            <mat-error *ngIf="name.hasError('invalidName')">
+                Name cannot contain numbers
+            </mat-error>
+
+            <!-- <mat-error *ngIf="name.hasError('required')">
+                Please valid name
+            </mat-error> -->
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput formControlName="email" placeholder="Email...">
+            <mat-error *ngIf="email.hasError('required') || email.invalid && email.touched
+            " >
+                Email must be valid
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Password...">
+            <mat-error *ngIf="password.invalid && (password.touched || password.dirty)
+            ">
+                Password must be at least 8 characters long
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password confirmation</mat-label>
+            <input type="password" matInput formControlName="passwordConfirmation" placeholder="passwordConfirmation...">
+            <mat-error *ngIf="registerForm.hasError('differentPassword') || passwordConfirmation.invalid && passwordConfirmation.touched">
+                Password must match
+            </mat-error>
+        </mat-form-field>
+        <br />
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input type="number" matInput formControlName="age" placeholder="Age...">
+            <mat-error *ngIf="age.invalid && age.touched">
+                Please enter a valid age
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Career</mat-label>
+            <mat-select formControlName="career" >
+                <mat-option value="" invalid>Select an option</mat-option>
+                <mat-option *ngFor="let career of careers" [value]="career">{{career | uppercase}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="email.hasError('required')">
+                Email must be valid
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <div>
+            <input type="text" placeholder="Email..." formControlName="email">
+            <p class="error-msg" *ngIf="email.invalid && email.touched">Please enter a valid email</p>
+        </div> -->
+        
+        <!-- <div>
+            <input type="password" placeholder="Password..." formControlName="password">
+            <p class="error-msg" *ngIf="password.invalid && password.touched">Please enter a valid password</p>
+        </div>
+
+        <div>
+            <input type="password" placeholder="Password confirmation..." formControlName="passwordConfirmation">
+            <p class="error-msg" *ngIf="registerForm.hasError('differentPassword') || passwordConfirmation.invalid && passwordConfirmation.touched"
+            >Password must match</p>
+        </div> -->
+
+        <!-- <div>
+            <input type="number" placeholder="Age..." formControlName="age">
+            <p class="error-msg" *ngIf="age.invalid && age.touched">Please enter a valid age</p>
+        </div>
+
+        <div>
+            <select formControlName="career">
+                <option value="" invalid>Select an option</option>
+                <option *ngFor="let career of careers" [value]="career">{{career | uppercase}}</option>
+            </select>
+            <p class="error-msg" *ngIf="career.invalid && career.touched">Select a valid career</p>  
+        </div> -->
+        <br />
+
+        <button mat-stroked-button color="primary" type="submit" [disabled]="registerForm.invalid">Submit</button>
+
+    </form>
+
+</div>

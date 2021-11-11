@@ -1,0 +1,12 @@
+h3{
+    background-color: blueviolet;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}

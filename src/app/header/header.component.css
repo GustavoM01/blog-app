@@ -1,0 +1,27 @@
+nav{
+    width: 100%;
+}
+
+.menu{
+    padding: 8px;
+    background-color: blueviolet;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu-item{
+    font-size: 1em;
+    color: aliceblue;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.menu-item:hover{
+    background-color: pink;
+}
+
+.active{
+    background-color: violet;
+}
